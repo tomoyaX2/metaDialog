@@ -44,7 +44,7 @@ const Main = (): JSX.Element => {
       </div>
       <div className='flex flex-col w-[848px] min-h-[580px] items-center justify-between bg-blue-secondary mt-2 rounded'>
         {activeScreen === ActiveScreenType.Form ? (
-          <Form />
+          <Form setActiveScreen={onChangeScreen} />
         ) : activeScreen === ActiveScreenType.Uploader ? (
           <Uploader setActiveScreen={onChangeScreen} />
         ) : (

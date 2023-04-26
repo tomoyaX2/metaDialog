@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { LinkIcon } from 'src/components/icons/link';
+import { ActiveScreenType } from 'src/shared/enums/ActiveScreenType';
 
 import { useAppDispatch } from 'src/store';
 import { sendUrlData } from 'src/store/list';
+
 interface FormData {
   name: string;
   url: string;
 }
-const Form = () => {
+const Form = ({
+  setActiveScreen
+}: {
+  setActiveScreen: (screen: ActiveScreenType) => void;
+}) => {
   const [formData, setFormData] = useState<FormData>({ name: '', url: '' });
   const dispatch = useAppDispatch();
 
@@ -16,6 +22,7 @@ const Form = () => {
   const onSubmit = () => {
     if (isActiveButton) {
       dispatch(sendUrlData(formData));
+      setActiveScreen(ActiveScreenType.List);
     }
   };
 

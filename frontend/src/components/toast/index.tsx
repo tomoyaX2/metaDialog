@@ -17,13 +17,11 @@ const Toast = forwardRef(
       | RefObject<HTMLDivElement>
       | null
       | undefined
-  ) => {
-    return (
-      <Notification type={type} header={header} closable ref={ref}>
-        {text}
-      </Notification>
-    );
-  }
+  ) => (
+    <Notification type={type} header={header} closable ref={ref}>
+      {text}
+    </Notification>
+  )
 );
 
 export { Toast };
